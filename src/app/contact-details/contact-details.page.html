@@ -1,0 +1,56 @@
+<ion-content fullscreen="true">
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>contact-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{contactInfo?.name}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let phone of contactInfo?.phones">
+        <ion-thumbnail slot="start">
+          <ion-icon name="call" style="height: 100%;"></ion-icon>
+        </ion-thumbnail>
+        <ion-label> 
+          {{phone?.number}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item *ngFor="let mail of contactInfo?.emails">
+        <ion-thumbnail slot="start">
+          <ion-icon name="mail-open" color="dart" style="height: 100%;"></ion-icon>
+        </ion-thumbnail>
+        <ion-label>
+          {{mail?.address}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item *ngFor="let address of contactInfo?.postalAddresses">
+        <ion-thumbnail slot="start">
+          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        </ion-thumbnail>
+        <ion-label>{{address}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-icon name="briefcase" color="dark" style="height: 100%;"></ion-icon>       
+        </ion-thumbnail>
+        <ion-label>{{contactInfo?.organisation? contactInfo?.organisation?.company: 'No organisation added'}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <ion-icon name="calendar-number" color="dart" style="height: 100%;"></ion-icon>
+        </ion-thumbnail>
+        <ion-label>{{contactInfo?.birthday? contactInfo?.birthday: 'No birthday date added'}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+</ion-content>

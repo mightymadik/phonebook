@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title (click) ="stop()">
+      {{!statusScan? "Contacts" : "Back to Contacts"}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="startScan()">
+        <ion-icon name="qr-code-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [style.visibility]="statusScan" [fullscreen]="true">
+  <div id="container">
+    <ion-list  *ngIf="contacts?.length > 0">
+      <ion-label color="dark" *ngFor="let contact of contacts" [routerLink]="['/contact-details', contact.contact.contactId]">
+        <ion-item *ngIf="contact.contact.phones" color="light" style="padding: 1em;">
+          <ion-avatar slot="start">
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label>   {{contact.contact?.name?.display}} </ion-label>
+        </ion-item>
+          <ion-item *ngFor="let phone of contact.contact.phones">
+            <ion-icon style="margin-right: 1em;" name="call" color="dark"></ion-icon>
+            {{phone.number}}
+          </ion-item>
+      </ion-label>
+    </ion-list>
+  </div>
+</ion-content>
