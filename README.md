@@ -3,7 +3,7 @@
 
 ## 1. Склонируйте проет репозитория или скачайте с репозитории 
 
-    $ git clone https://github.com/kholovyun/greetgo.git
+    $ git clone https://github.com/mightymadik/phonebook
 
 ## 2. Перейдите в папку проекта
 
